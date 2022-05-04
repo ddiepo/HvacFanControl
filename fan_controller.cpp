@@ -413,10 +413,12 @@ int main(int argc, char* argv[]) {
   CurlObj tstatCurl("http://192.168.0.73/tstat");
   CurlObj fan1Curl("http://192.168.0.75/mf");
   CurlObj fan2Curl("http://192.168.0.76/mf");
+  CurlObj fan3Curl("http://192.168.0.77/mf");
 
   std::vector<std::unique_ptr<Fan>> fans;
   fans.push_back(std::make_unique<CeilingFan>(fan1Curl()));
   fans.push_back(std::make_unique<CeilingFan>(fan2Curl()));
+  fans.push_back(std::make_unique<CeilingFan>(fan3Curl()));
   fans.push_back(std::make_unique<FurnaceBlower>(tstatCurl()));
 
   using std::chrono::steady_clock;
